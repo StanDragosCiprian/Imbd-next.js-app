@@ -1,0 +1,21 @@
+.slideContainer {
+  display: flex;
+
+  overflow-x: hidden;
+  height: '200px';
+ 
+  .poster {
+    display: inline-block;
+    height: 225px;
+    width: 150px;
+    border-radius: 10px;
+    margin:10px;
+  }
+
+}
+.Scroll{
+  position: absolute;
+  margin-top: 125px;
+  right: 0;
+  transform: translateY(-50%);
+}

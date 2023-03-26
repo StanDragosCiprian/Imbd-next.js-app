@@ -1,26 +1,24 @@
 import { useState } from "react";
-import { trending } from "./apiRequest";
+import { requestApi } from "./apiRequest";
+import movieStyle from "../styles/NavBarStyle/Banner/banner.module.scss";
 import variable from "../styles/variable.module.scss";
 import NavBar from "./Navigation/NavBar";
+import MediaComponents from "./MovieUi/MediaComponents";
 export async function getStaticProps() {
-  const trendingDate = await trending();
 
-  return { props: { trendingDate } };
+  const trendingDate = await requestApi("https://api.themoviedb.org/3/trending/all/day?api_key=874416021e462f491082a13737e8a2b2");
+  const trendingDateTV = await requestApi("https://api.themoviedb.org/3/trending/tv/day?api_key=874416021e462f491082a13737e8a2b2");
+  return { props: { trendingDate,trendingDateTV } };
 }
-export default function Home({ trendingDate }) {
-  const [tData, setTData] = useState([trendingDate]);
+export default function Home({ trendingDate,trendingDateTV }) {
+
 
   console.log(trendingDate);
   return (
     <>
     <NavBar />
-      <p className={variable.title}>ceva</p>
-      {tData[0].results.map((trends, index) => (
-        <div key={index}>
-          <p>{trends.title}</p>
-          <p>{trends.name}</p>
-        </div>
-      ))}
+     <MediaComponents trendingDate={trendingDate} movieStyle={movieStyle}/>
+     <MediaComponents trendingDate={trendingDateTV} movieStyle={movieStyle}/>
     </>
   );
 }
