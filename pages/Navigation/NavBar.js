@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import navStyle from "E:/imbd-app/styles/NavBarStyle/navbarStyle.module.scss";
+import SearchUI from "../SearchBarUi/searchUI";
+import navStyle from "E:/imbd-app/styles/SASS/NavBar/navbarStyle.module.scss";
+import searchStyle from "E:/imbd-app/styles/SASS/NavBar/searchStyle.module.scss"
 export default function NavBar() {
   const [widthDecizion, setWidthDecizion] = useState();
   const [buttPress, setButtPress] = useState(false);
@@ -19,20 +21,21 @@ export default function NavBar() {
   console.log(widthDecizion);
   return (
     <>
-    <div className={navStyle.nav}>
-      {!buttPress && <p style={{ color: "white" }}>Imbd</p>}
+  
+      <div className={navStyle.nav}>
+        {!buttPress && <p style={{ color: "white" }}>Imbd</p>}
 
-      {widthDecizion && (
+        {widthDecizion && (
+          <div>
+            <input type="search" className={navStyle.search} />
+            <button>C</button>
+          </div>
+        )}
         <div>
-          <input type="search" className={navStyle.search} />
-          <button>C</button>
+          {!widthDecizion && <button onClick={handleSearchPhone}>C</button>}
+          {!buttPress && <img alt="n-avem" />}
         </div>
-      )}
-      <div>
-        {!widthDecizion && <button onClick={handleSearchPhone}>C</button>}
-        {!buttPress &&<img alt="n-avem" />}
       </div>
-    </div>
     </>
   );
 }

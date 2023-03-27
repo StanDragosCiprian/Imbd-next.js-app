@@ -13,9 +13,15 @@
   }
 
 }
-.Scroll{
+.ScrollRight{
   position: absolute;
   margin-top: 125px;
   right: 0;
+  transform: translateY(-50%);
+}
+.ScrollLeft{
+  position: absolute;
+  margin-top: 125px;
+  left: 0;
   transform: translateY(-50%);
 }
