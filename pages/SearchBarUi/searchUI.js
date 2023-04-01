@@ -1,12 +1,9 @@
-export default function SearchUI({ style }) {
+export default function SearchUI({ style},props ) {
+  console.log(style)
   return (
     <div className={style.searchMovie}>
       <ol>
-        <li>movie 1</li>
-        <li>movie 1</li>  
-        <li>movie 1</li>  
-        <li>movie 1</li>
-
+        {props.children}
       </ol>
     </div>
   )

@@ -1,0 +1,17 @@
+@mixin searchPropotion($w,$h,$borderTopLeft,$borderBottomLeft,$borderTopRight,$borderBottomRight){
+    width: $w;
+    height: $h;
+    border-top-left-radius: $borderTopLeft;
+    border-bottom-left-radius: $borderBottomLeft;
+    border-top-right-radius: $borderTopRight;
+    border-bottom-right-radius: $borderBottomRight;
+}
+@mixin navBarPorpotion(){
+    background-color:#1A2238;
+    margin: 0px;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

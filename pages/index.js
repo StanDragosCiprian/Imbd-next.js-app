@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { requestApi } from "./apiRequest";
 import movieStyle from "../styles/SASS/Banner/banner.module.scss";
 import NavBar from "./Navigation/NavBar";
@@ -45,6 +45,7 @@ export default function Home({
   const [switchTrending, setSwitchTrending] = useState(true);
   const [switchMovie, setSwitchMovie] = useState(true);
   console.log(trendingDate);
+
   const handleSwitch = (t) => {
     if (t === "t") {
       setSwitchTrending(false);
@@ -53,11 +54,10 @@ export default function Home({
     }
   };
 
+
   return (
     <>
-   
-      <NavBar />
-      
+    
       <button onClick={() => handleSwitch("t")}>Week</button>
       {switchTrending && (
         <MediaComponents trendingDate={trendingDate} movieStyle={movieStyle} />
