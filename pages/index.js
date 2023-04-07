@@ -5,24 +5,12 @@ import NavBar from "./Navigation/NavBar";
 import MediaComponents from "./MovieUi/MediaComponents";
 
 export async function getStaticProps() {
-  const trendingDateDay = await requestApi(
-    "https://api.themoviedb.org/3/trending/all/day?api_key=874416021e462f491082a13737e8a2b2"
-  );
-  const trendingDateTV = await requestApi(
-    "https://api.themoviedb.org/3/trending/tv/day?api_key=874416021e462f491082a13737e8a2b2"
-  );
-  const trendingDateMovie = await requestApi(
-    "https://api.themoviedb.org/3/trending/movie/day?api_key=874416021e462f491082a13737e8a2b2"
-  );
-  const trendingDateWeek = await requestApi(
-    "https://api.themoviedb.org/3/trending/all/week?api_key=874416021e462f491082a13737e8a2b2"
-  );
-  const movieRate = await requestApi(
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=874416021e462f491082a13737e8a2b2&language=en-US&page=1"
-  );
-  const tvRate = await requestApi(
-    "https://api.themoviedb.org/3/tv/popular?api_key=874416021e462f491082a13737e8a2b2&language=en-US&page=1"
-  );
+  const trendingDateDay = await requestApi("https://api.themoviedb.org/3/trending/all/day?api_key=874416021e462f491082a13737e8a2b2");
+  const trendingDateTV = await requestApi("https://api.themoviedb.org/3/trending/tv/day?api_key=874416021e462f491082a13737e8a2b2");
+  const trendingDateMovie = await requestApi("https://api.themoviedb.org/3/trending/movie/day?api_key=874416021e462f491082a13737e8a2b2");
+  const trendingDateWeek = await requestApi("https://api.themoviedb.org/3/trending/all/week?api_key=874416021e462f491082a13737e8a2b2");
+  const movieRate = await requestApi("https://api.themoviedb.org/3/movie/top_rated?api_key=874416021e462f491082a13737e8a2b2&language=en-US&page=1");
+  const tvRate = await requestApi("https://api.themoviedb.org/3/tv/popular?api_key=874416021e462f491082a13737e8a2b2&language=en-US&page=1");
   return {
     props: {
       trendingDate: trendingDateDay,

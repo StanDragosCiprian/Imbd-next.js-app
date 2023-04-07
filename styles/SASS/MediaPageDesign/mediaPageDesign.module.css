@@ -1,0 +1,49 @@
+.poster {
+  display: inline-block;
+  position: absolute;
+  height: 500px;
+  left: 20px;
+  top: 70px;
+  border-radius: 10px;
+  margin: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+}
+
+.containter {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.banner {
+  background-size: cover;
+  filter: blur(4px) brightness(75%);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 0px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 85%);
+          clip-path: polygon(0 0, 100% 0, 100% 85%, 0 85%);
+  /* Only show the bottom 80% of the element */
+}
+
+.textDesign_1 {
+  background-color: black;
+}
+
+.textDesign_2 {
+  background-color: black;
+}
+
+.textDesign_3 {
+  background-color: black;
+}
+
+.textDesign_4 {
+  background-color: black;
+}
+
+.textDesign_5 {
+  background-color: black;
+}/*# sourceMappingURL=mediaPageDesign.module.css.map */

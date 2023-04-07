@@ -1,0 +1,26 @@
+.slideContainer {
+  display: flex;
+  overflow-x: hidden;
+  height: "200px";
+}
+.slideContainer .poster {
+  display: inline-block;
+  height: 225px;
+  width: 150px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.ScrollRight {
+  position: absolute;
+  margin-top: 125px;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.ScrollLeft {
+  position: absolute;
+  margin-top: 125px;
+  left: 0;
+  transform: translateY(-50%);
+}/*# sourceMappingURL=banner.module.css.map */
