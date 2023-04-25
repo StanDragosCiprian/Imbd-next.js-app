@@ -38,20 +38,42 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+$topUI: 100px, 200px, 300px, 400px, 500px, 600px, 0px, ;
+
+@mixin size($top, $index) {
+  top: $top;
+
+  @if $index==3 {
+    left: 25%;
+  }
+
+  @else {
+    left: 25%;
+  }
+
+  @if $index==1 {
+    left: 50%;
+  }
+
+}
+
 @mixin custom_text($index) {
-  @for $i from 1 through 6 {
+  @for $i from 1 through 7 {
     @if $index==$i {
-     @include font();
+      @include font();
+      @include size(nth($topUI, $i), $index);
+
 
     }
   }
 }
 
-@for $i from 0 through 6 {
+@for $i from 1 through 7 {
   .textDesign_#{$i} {
     position: absolute;
     @include custom_text($i);
     background-size: cover;
     z-index: 2;
+    color: white;
   }
 }

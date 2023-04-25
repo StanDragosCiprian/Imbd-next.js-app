@@ -36,9 +36,9 @@ export default function Home({
 
   const handleSwitch = (t) => {
     if (t === "t") {
-      setSwitchTrending(false);
+      setSwitchTrending(!switchTrending);
     } else if (t === "m") {
-      setSwitchMovie(false);
+      setSwitchMovie(!switchMovie);
     }
   };
 

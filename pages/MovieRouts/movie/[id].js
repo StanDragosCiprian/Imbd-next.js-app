@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
 export default function movie({ search }) {
   const [searchRequst, setSearchRequst] = useState(search.results[0])
   const [info, setInfo] = useState([searchRequst.title, searchRequst.release_date, searchRequst.overview, searchRequst.popularity, searchRequst.vote_average, searchRequst.vote_count])
-  const [mediaStyleArray, setMediaStyleV] = useState([mediaStyle.textDesign_0,mediaStyle.textDesign_1,mediaStyle.textDesign_2,mediaStyle.textDesign_3,mediaStyle.textDesign_4,mediaStyle.textDesign_5])
+  const [mediaStyleArray, setMediaStyleV] = useState([mediaStyle.textDesign_1,mediaStyle.textDesign_2,mediaStyle.textDesign_3,mediaStyle.textDesign_4,mediaStyle.textDesign_5,mediaStyle.textDesign_6,mediaStyle.textDesign_7])
 
   //console.log(searchRequst)
 
