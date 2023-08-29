@@ -12,7 +12,7 @@ export default function NavBar() {
   return (
     <>
       <div className={navStyle.nav}>
-        {!buttPress && <Link href="/"><p style={{ color: "white" }}>Imbd</p></Link>}
+        {!buttPress && <Link href="/"><p style={{ color: "white" }}>Imbdz</p></Link>}
         <Search />
         <div>
           {!buttPress && <img alt="n-avem" />}

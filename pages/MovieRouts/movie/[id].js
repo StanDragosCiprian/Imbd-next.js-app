@@ -1,6 +1,5 @@
 import { requestApi } from '@/pages/apiRequest';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
 import mediaStyle from 'E:/imbd-app/styles/SASS/MediaPageDesign/mediaPageDesign.module.scss';
 export async function getStaticPaths() {
 
@@ -22,6 +21,7 @@ export async function getStaticProps(context) {
 
   const search = await requestApi(`https://api.themoviedb.org/3/search/multi?api_key=874416021e462f491082a13737e8a2b2&language=en-US&query=${context.params.id}&page=1&include_adult=false`)
 
+  console.log("🚀 ~ file: [id].js:24 ~ getStaticProps ~ search:", search)
   return {
     // Passed to the page component as props
 
@@ -32,30 +32,37 @@ export async function getStaticProps(context) {
 }
 
 export default function movie({ search }) {
-  const [searchRequst, setSearchRequst] = useState(search.results[0])
-  const [info, setInfo] = useState([searchRequst.title, searchRequst.release_date, searchRequst.overview, searchRequst.popularity, searchRequst.vote_average, searchRequst.vote_count])
-  const [mediaStyleArray, setMediaStyleV] = useState([mediaStyle.textDesign_1,mediaStyle.textDesign_2,mediaStyle.textDesign_3,mediaStyle.textDesign_4,mediaStyle.textDesign_5,mediaStyle.textDesign_6,mediaStyle.textDesign_7])
+  const [searchRequst] = useState(search.results[0])
+  const [info] = useState([searchRequst.title, searchRequst.release_date, searchRequst.overview, searchRequst.popularity, searchRequst.vote_average, searchRequst.vote_count])
+  const [mediaStyleArray] = useState([mediaStyle.textDesign_1, mediaStyle.textDesign_2, mediaStyle.textDesign_3])
 
-  //console.log(searchRequst)
 
-  //console.log(match); // "X"
-  //console.log(style)
-   console.log(mediaStyleArray)
+
   return (
+    <>
+      <div style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(255,0,0,0.0), rgba(0,0,255,0.0)), url(https://image.tmdb.org/t/p/w500/${searchRequst.backdrop_path})`,
+        backgroundSize: 'cover',
+        backgroundBlendMode: 'multiply',
 
-    <div className={mediaStyle.containter}>
-       {info.map((inf, index) => (
-        <>
-          <p className={mediaStyleArray[index]}>{inf}</p>
+      }} className={mediaStyle.containter}>
 
-        </>
-      ))}
-      <img src={`https://image.tmdb.org/t/p/w500/${searchRequst.poster_path}`} alt="ceva" className={mediaStyle.poster} />
-      {/* <div className='fron-ground'> */}
-      <img src={`https://image.tmdb.org/t/p/w500/${searchRequst.backdrop_path}`} alt="ceva" className={mediaStyle.banner} />
-      {/* </div> */}
-     
+        {
+          info.map((inf, index) => (
+            <>
+              <p className={mediaStyleArray[index]}>{inf}</p>
 
-    </div>
+            </>
+          ))
+        }
+
+        < img src={`https://image.tmdb.org/t/p/w500/${searchRequst.poster_path}`} alt="ceva" className={mediaStyle.poster} />
+        {/* <div className='fron-ground'> */}
+
+        {/* <img src={`https://image.tmdb.org/t/p/w500/${searchRequst.backdrop_path}`} alt="ceva" className={mediaStyle.co} /> */}
+        
+      </div >
+      
+    </>
   )
 }

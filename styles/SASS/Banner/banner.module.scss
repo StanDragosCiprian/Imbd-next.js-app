@@ -3,25 +3,84 @@
 
   overflow-x: hidden;
   height: '200px';
- 
+
   .poster {
     display: inline-block;
     height: 225px;
     width: 150px;
     border-radius: 10px;
-    margin:10px;
+    margin: 10px;
   }
 
 }
-.ScrollRight{
+
+@mixin scroll() {
   position: absolute;
+  BORDER-RADIUS: 50%;
+  FONT-SIZE: 20PX;
   margin-top: 125px;
-  right: 0;
+  WIDTH: 50PX;
+  HEIGHT: 50PX;
   transform: translateY(-50%);
+  border: 1px solid transparent;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  /* Semi-transparent background */
+  border: none;
+  /* No border */
+  color: hsla(224, 37%, 16%, 0.5);
+
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 1.0);
+    /* Semi-transparent background */
+    border: none;
+    /* No border */
+    color: hsla(224, 37%, 16%, 1.0);
+    cursor: pointer;
+  }
 }
-.ScrollLeft{
-  position: absolute;
-  margin-top: 125px;
-  left: 0;
-  transform: translateY(-50%);
+
+
+.ScrollRight {
+  @include scroll();
+  right: 10px;
+
+}
+
+
+.ScrollLeft {
+  @include scroll();
+  left: 10px;
+
+}
+
+.button_design {
+  position: relative;
+  left: 10px;
+  top:5px;
+  align-items: center;
+  background-color: hsl(224.1,36.8%,26.1%);
+  border: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  -webkit-user-select: none;
+  vertical-align: middle;
 }

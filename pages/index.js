@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { requestApi } from "./apiRequest";
 import movieStyle from "../styles/SASS/Banner/banner.module.scss";
 import NavBar from "./Navigation/NavBar";
@@ -32,21 +32,24 @@ export default function Home({
 }) {
   const [switchTrending, setSwitchTrending] = useState(true);
   const [switchMovie, setSwitchMovie] = useState(true);
-  console.log(trendingDate);
+  const [contentPeriod, setContentPeriod] = useState("Week");
+  const [contentName, setContentName] = useState("Movie");
 
   const handleSwitch = (t) => {
     if (t === "t") {
       setSwitchTrending(!switchTrending);
     } else if (t === "m") {
       setSwitchMovie(!switchMovie);
+
     }
   };
-
-
+  const handleSwitchName = (switchContent, setContent, str1, str2) => {
+    switchContent ? setContent(str1) : setContent(str2)
+  }
   return (
     <>
-    
-      <button onClick={() => handleSwitch("t")}>Week</button>
+
+      <button onClick={() => { handleSwitch("t"), handleSwitchName(switchTrending, setContentPeriod, "Month", "Week") }} className={movieStyle.button_design}>{contentPeriod}</button>
       {switchTrending && (
         <MediaComponents trendingDate={trendingDate} movieStyle={movieStyle} />
       )}
@@ -56,7 +59,7 @@ export default function Home({
           movieStyle={movieStyle}
         />
       )}
-      <button onClick={() => handleSwitch("m")}>TV</button>
+      <button onClick={() => { handleSwitch("m"), handleSwitchName(switchMovie, setContentName, "Tv", "Movie") }} className={movieStyle.button_design}>{contentName}</button>
       {switchMovie && (
         <MediaComponents
           trendingDate={trendingDateMovie}

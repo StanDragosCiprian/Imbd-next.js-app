@@ -4,6 +4,7 @@ import Link from 'next/link'
 export default function MediaComponents({ trendingDate, movieStyle }) {
   const [tData, setTData] = useState([trendingDate]);
   const containerRef = useRef(null);
+
   const handlerCons = async (title) => {
     const body = JSON.stringify({ title: title });
 
@@ -11,31 +12,31 @@ export default function MediaComponents({ trendingDate, movieStyle }) {
       method: 'POST',
       body: body
     }).then(resp => resp.json()).then(data => {
-      console.log(data)
+
 
     })
   }
   const handleScroll = (left) => {
-    console.log(
-      containerRef.current.scrollBy({
-        left: left,
-        behavior: "smooth",
-      })
-    );
+    containerRef.current.scrollBy({
+      left: left,
+      behavior: "smooth",
+    })
   };
+
   return (
     <>
+
       <button
         onClick={() => handleScroll(500)}
         className={movieStyle.ScrollRight}
       >
-        Scroll
+        {'>'}
       </button>
       <button
         onClick={() => handleScroll(-500)}
         className={movieStyle.ScrollLeft}
       >
-        Scroll
+        {'<'}
       </button>
       <div className={movieStyle.slideContainer} ref={containerRef}>
         {tData[0].results.map((trends, index) => (

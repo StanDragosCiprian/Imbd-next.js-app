@@ -10,7 +10,7 @@ UserMediaPath.prototype.setParsedBody = function (body) {
 UserMediaPath.prototype.writeFilePost = function (data) {
     fs.writeFile(this.filePath, JSON.stringify(data), (err) => {
         if (err) throw err;
-        console.log('The file has been updated!');
+      
     });
 }
 UserMediaPath.prototype.readFile = function (data) {
